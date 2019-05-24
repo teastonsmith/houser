@@ -1,19 +1,19 @@
 import React from 'react';
+import { HashRouter } from 'react-router-dom';
 import './App.css';
 
-import Dashboard from './Components/Dashboard/Dashboard';
-import Wizard from './Components/Wizard/Wizard';
 import Header from './Components/Header/Header';
-import House from './Components/House/House';
+// import House from './Components/House/House';
+
+import routes from './routes';
 
 export default function App() {
 	return (
-		<div className='App'>
-			<Dashboard>
-				<House />
-			</Dashboard>
-			<Wizard />
-			<Header />
-		</div>
+		<HashRouter>
+			<div className='App'>
+				<Header />
+				{routes}
+			</div>
+		</HashRouter>
 	);
 }
