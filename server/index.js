@@ -1,17 +1,20 @@
-// const axios = require('axios');
+require('dotenv').config();
 const express = require('express');
-// const router = require('react-router-dom');
+const massive = require('massive');
 
+// const axios = require('axios');
+// const router = require('react-router-dom');
 // const controller = require('./controller');
 
 const app = express();
-console.log('express invoked');
-
 app.use(express.json());
 
-// const { SERVER_PORT, SESSION_SECRET } = process.env;
-const SERVER_PORT = 3005
+const { SERVER_PORT, CONNECTION_STRING } = process.env;
 
-app.listen(SERVER_PORT, () => {
-	console.log(`Now listening on port: ${SERVER_PORT}`);
+massive(CONNECTION_STRING).then(database => {
+	app.set('db', database);
+	console.log('Database set');
+	app.listen(SERVER_PORT, () => {
+		console.log(`Now listening on port: ${SERVER_PORT}`);
+	});
 });
