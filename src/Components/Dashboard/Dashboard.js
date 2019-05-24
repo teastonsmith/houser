@@ -1,31 +1,26 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-
 import House from './../House/House';
-
 const axios = require('axios');
 
-const getAxios = () =>
-	axios
-		.get('/houses')
-		.then(function() {
-			this.setState({
-				houses: [this.state],
-			});
-		})
-		.catch(function(error) {
-			console.log('error');
+axios
+	.get('/houses')
+	.then(function() {
+		this.setState({
+			houses: [this.state],
 		});
+	})
+	.catch(function(error) {
+		console.log('error');
+	});
 
 export default class Dashboard extends Component {
 	constructor(props) {
 		super(props);
-
 		this.state = {
 			houses: [],
 		};
 	}
-
 	render() {
 		return (
 			<div>
@@ -37,12 +32,7 @@ export default class Dashboard extends Component {
 				</div>
 				<div>
 					{this.state.houses.map(house => {
-						return (
-              <House 
-                key={house.id}
-              />
-              )
-              getAxios()
+						return <House key={house.id} />;
 					})}
 				</div>
 			</div>

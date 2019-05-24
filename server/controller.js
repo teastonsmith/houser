@@ -33,4 +33,15 @@ module.exports = {
 	get: (req, res) => {
 		res.send(houses);
 	},
+	post: (req, res) => {
+		const { name, address, city, state, zipcode } = req.body
+		let house = 	{
+			user_id: user_id++,
+			name,
+			address,
+			city,
+			state,
+			zipcode,
+		},
+	}
 };
