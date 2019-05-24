@@ -1,17 +1,17 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 export default class Header extends Component {
-  constructor(props){
-    super(props)
+	constructor(props) {
+		super(props);
 
-    this.state = {}
-  }
+		this.state = {};
+	}
 
-  render() {
-    return (
-      <div>
-        <p>Header</p>
-      </div>
-    )
-  }
+	render() {
+		return (
+			<div>
+				<p>Header</p>
+			</div>
+		);
+	}
 }

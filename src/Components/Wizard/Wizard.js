@@ -20,11 +20,36 @@ export default class Wizard extends Component {
 				<p>Wizard</p>
 				<button>
 					<Link to='/'>Cancel</Link>
-					<input name='name' type='text' value={this.state.name} />
-					<input name='address' type='text' value={this.state.address} />
-					<input name='city' type='text' value={this.state.city} />
-					<input name='state' type='text' value={this.state.state} />
-					<input name='zipcode' type='text' value={this.state.zipcode} />
+					<input
+						placeholder='Enter Name'
+						name='name'
+						type='text'
+						defaultValue={this.state.name}
+					/>
+					<input
+						placeholder='Enter Address'
+						name='address'
+						type='text'
+						defaultValue={this.state.address}
+					/>
+					<input
+						placeholder='Enter City'
+						name='city'
+						type='text'
+						defaultValue={this.state.city}
+					/>
+					<input
+						placeholder='Enter State'
+						name='state'
+						type='text'
+						defaultValue={this.state.state}
+					/>
+					<input
+						placeholder='Enter Zip Code'
+						name='zipcode'
+						type='text'
+						defaultValue={this.state.zipcode}
+					/>
 				</button>
 			</div>
 		);

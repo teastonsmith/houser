@@ -1,23 +1,50 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 import House from './../House/House';
+
+const axios = require('axios');
+
+const getAxios = () =>
+	axios
+		.get('/houses')
+		.then(function() {
+			this.setState({
+				houses: [this.state],
+			});
+		})
+		.catch(function(error) {
+			console.log('error');
+		});
 
 export default class Dashboard extends Component {
 	constructor(props) {
 		super(props);
 
-		this.state = {};
+		this.state = {
+			houses: [],
+		};
 	}
 
 	render() {
 		return (
 			<div>
-				<p>Dashboard</p>
-				<button>
-					<Link to='/wizard'>Add New Property</Link>
-				</button>
-        <House />
+				<div>
+					<p>Dashboard</p>
+					<button>
+						<Link to='/wizard'>Add New Property</Link>
+					</button>
+				</div>
+				<div>
+					{this.state.houses.map(house => {
+						return (
+              <House 
+                key={house.id}
+              />
+              )
+              getAxios()
+					})}
+				</div>
 			</div>
 		);
 	}
