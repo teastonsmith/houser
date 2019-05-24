@@ -1,10 +1,11 @@
-const axios = require('axios');
+// const axios = require('axios');
 const express = require('express');
-const router = require('react-router-dom');
+// const router = require('react-router-dom');
 
-const controller = require('./controller');
+// const controller = require('./controller');
 
 const app = express();
+console.log('express invoked');
 
 app.use(express.json());
 
